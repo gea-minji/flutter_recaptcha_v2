@@ -47,7 +47,8 @@ class _RecaptchaV2ButtonState extends State<RecaptchaV2Button> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SafeArea(
+        child: Container(
       padding: EdgeInsets.all(2),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -117,6 +118,6 @@ class _RecaptchaV2ButtonState extends State<RecaptchaV2Button> {
               : SizedBox.shrink(),
         ],
       ),
-    );
+    ));
   }
 }
