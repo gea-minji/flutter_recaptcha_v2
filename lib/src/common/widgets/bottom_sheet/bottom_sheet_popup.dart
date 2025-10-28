@@ -21,12 +21,14 @@ class BottomSheetPopup {
         onCanceled: onCanceled,
         builder: (context) {
           RecaptchaV2Controller recaptchaV2Controller = RecaptchaV2Controller();
+          final bottomInset = MediaQuery.of(context).viewPadding.bottom;
           return RecaptchaV2(
             apiKey: apiKey,
             apiSecret: apiSecret,
             pluginURL: pluginURL,
             controller: recaptchaV2Controller,
-            padding: EdgeInsetsDirectional.symmetric(horizontal: 24),
+            padding: EdgeInsetsDirectional.only(
+                start: 24, end: 24, bottom: bottomInset),
             onVerifiedError: (err) {
               print(err);
             },
