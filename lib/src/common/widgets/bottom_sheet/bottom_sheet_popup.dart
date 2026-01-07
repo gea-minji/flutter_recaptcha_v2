@@ -14,34 +14,29 @@ class BottomSheetPopup {
     VoidCallback? onCanceled,
     Function(bool isSuccess)? onVerify,
   }) {
-    BottomSheetPageView.showBottomSheet(
-        useSafeArea: true,
-        context,
-        providers: [],
-        children: [
-          BottomSheetPageDelegate(
-            padding: EdgeInsets.zero,
-            boxDecoration: const BoxDecoration(color: ColorName.background),
-            onCanceled: onCanceled,
-            builder: (context) {
-              RecaptchaV2Controller recaptchaV2Controller =
-                  RecaptchaV2Controller();
-              return RecaptchaV2(
-                apiKey: apiKey,
-                apiSecret: apiSecret,
-                pluginURL: pluginURL,
-                controller: recaptchaV2Controller,
-                padding: EdgeInsetsDirectional.symmetric(horizontal: 24),
-                onVerifiedError: (err) {
-                  print(err);
-                },
-                onVerifiedSuccessfully: (isSuccess) {
-                  onVerify?.call(isSuccess);
-                  Navigator.of(context).maybePop();
-                },
-              );
+    BottomSheetPageView.showBottomSheet(context, providers: [], children: [
+      BottomSheetPageDelegate(
+        padding: EdgeInsets.zero,
+        boxDecoration: const BoxDecoration(color: ColorName.background),
+        onCanceled: onCanceled,
+        builder: (context) {
+          RecaptchaV2Controller recaptchaV2Controller = RecaptchaV2Controller();
+          return RecaptchaV2(
+            apiKey: apiKey,
+            apiSecret: apiSecret,
+            pluginURL: pluginURL,
+            controller: recaptchaV2Controller,
+            padding: EdgeInsetsDirectional.symmetric(horizontal: 24),
+            onVerifiedError: (err) {
+              print(err);
             },
-          ),
-        ]);
+            onVerifiedSuccessfully: (isSuccess) {
+              onVerify?.call(isSuccess);
+              Navigator.of(context).maybePop();
+            },
+          );
+        },
+      ),
+    ]);
   }
 }
