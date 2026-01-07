@@ -100,12 +100,13 @@ class _RecaptchaV2State extends State<RecaptchaV2>
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SafeArea(
+        child: Container(
       padding: widget.padding,
       constraints:
           BoxConstraints(maxHeight: MediaQuery.of(context).size.height * 0.65),
       child: WebViewWidget(controller: webViewController),
-    );
+    ));
   }
 }
 
