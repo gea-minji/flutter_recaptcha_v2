@@ -49,15 +49,14 @@ class BottomSheetPageView extends StatefulWidget {
       backgroundColor: backgroundColor,
       useSafeArea: useSafeArea,
       builder: (context) {
-        Widget child = SafeArea(
-            child: BottomSheetPageView(
+        Widget child = BottomSheetPageView(
           children: children,
           anchor: anchor,
           onClose: () {
             children.firstOrNull?.onCanceled?.call();
             Navigator.of(context).maybePop();
           },
-        ));
+        );
         return child;
         // return providers.isNotEmpty
         //     ? MultiBlocProvider(providers: providers, child: child)

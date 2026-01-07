@@ -26,7 +26,7 @@ class BottomSheetPopup {
             apiSecret: apiSecret,
             pluginURL: pluginURL,
             controller: recaptchaV2Controller,
-            padding: EdgeInsetsDirectional.symmetric(horizontal: 24),
+            padding: EdgeInsetsDirectional.all(30),
             onVerifiedError: (err) {
               print(err);
             },
