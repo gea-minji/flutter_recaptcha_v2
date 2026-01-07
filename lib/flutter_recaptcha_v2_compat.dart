@@ -106,7 +106,8 @@ class _RecaptchaV2State extends State<RecaptchaV2>
           padding: widget.padding,
           constraints: BoxConstraints(
               maxHeight: MediaQuery.of(context).size.height * 0.65),
-          child: WebViewWidget(controller: webViewController),
+          child: SingleChildScrollView(
+              child: WebViewWidget(controller: webViewController)),
         ));
   }
 }
