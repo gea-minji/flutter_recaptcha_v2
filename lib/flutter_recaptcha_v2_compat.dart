@@ -101,9 +101,7 @@ class _RecaptchaV2State extends State<RecaptchaV2>
   @override
   Widget build(BuildContext context) {
     final double screenHeight = MediaQuery.of(context).size.height;
-    final double ratio = (screenHeight / 900).clamp(0.65, 0.8);
-    print('khj --> $screenHeight');
-    print('khj --> $ratio');
+    final double ratio = (520 / screenHeight).clamp(0.65, 0.8);
     return SafeArea(
         bottom: true,
         child: Container(
