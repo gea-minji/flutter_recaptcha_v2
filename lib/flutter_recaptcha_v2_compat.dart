@@ -100,13 +100,15 @@ class _RecaptchaV2State extends State<RecaptchaV2>
 
   @override
   Widget build(BuildContext context) {
+    final double screenHeight = MediaQuery.of(context).size.height;
+    final double ratio = (screenHeight / 900).clamp(0.65, 0.8);
+
     return SafeArea(
         bottom: true,
         child: Container(
           padding: widget.padding,
           margin: EdgeInsets.only(bottom: 20),
-          constraints: BoxConstraints(
-              maxHeight: MediaQuery.of(context).size.height * 0.70),
+          constraints: BoxConstraints(maxHeight: screenHeight * ratio),
           child: WebViewWidget(controller: webViewController),
         ));
   }
